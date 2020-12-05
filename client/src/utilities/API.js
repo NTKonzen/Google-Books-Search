@@ -7,6 +7,10 @@ const APICalls = {
 
     createUser(username) {
         return axios.post('/api/users/' + username)
+    },
+
+    getBooks(bookTitle) {
+        return axios.get(`https://www.googleapis.com/books/v1/volumes?q=${bookTitle}&key=AIzaSyDmTLWLcOBuZuitPxUEWhkdI3ivf6yzwfQ`)
     }
 
 }
