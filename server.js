@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require('mongoose')
 const path = require('path');
 const routes = require('./routes')
+require('dotenv').config();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
