@@ -57,7 +57,13 @@ function Search() {
                     <Col>
                         <ul className="list-group">
                             {bookList.map(bookObj => {
-                                let imageURL = bookObj.imageLinks.thumbnail
+                                let imageURL;
+                                if (bookObj.imageLinks) {
+                                    imageURL = bookObj.imageLinks.thumbnail
+                                }
+                                if (!imageURL) {
+                                    imageURL = "https://via.placeholder.com/125x200"
+                                }
                                 return <li className="bg-secondary list-group-item mt-2 rounded text-center" key={bookObj.previewLink}>
                                     <img src={imageURL} alt={`The cover of ${bookObj.title}`}></img>
                                     <h4 className="text-light mt-2 font-weight-bold">
