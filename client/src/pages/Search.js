@@ -13,7 +13,7 @@ function Search() {
     if (!Cookies.get('username')) {
         window.location = "/signup"
     }
-
+    document.title = 'Google Book Search'
     const [input, setInput] = useState('');
     const [bookList, setBookList] = useState([]);
     function handleInput(e) {

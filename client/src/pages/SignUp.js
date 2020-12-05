@@ -13,6 +13,7 @@ function SignUp() {
     if (Cookies.get('username')) {
         window.location = "/search"
     }
+    document.title = 'Sign Up'
     const [input, setInput] = useState('');
     function handleInput(e) {
         setInput(e.target.value)
