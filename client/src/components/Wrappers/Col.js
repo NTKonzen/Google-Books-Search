@@ -1,6 +1,6 @@
-function Col({ children }) {
+function Col({ children, className, styles }) {
     return (
-        <div className="col">{children}</div>
+        <div style={{ ...styles }} className={"col " + className} > { children}</div >
     )
 }
 

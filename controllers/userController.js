@@ -15,8 +15,6 @@ module.exports = {
         db.User
             .findOne(req.params)
             .then(data => {
-                console.log(req.params)
-                console.log(data)
                 if (data) {
                     res.json(data)
                 } else {
@@ -39,5 +37,19 @@ module.exports = {
                 console.log(err)
                 res.status(422).json(err)
             })
+    },
+    addBook(req, res) {
+        let bookObj = req.body;
+        let username = req.params.username
+        db.User.findOneAndUpdate({ username }, { $push: { savedBooks: bookObj } }, { new: true }).then(data => {
+            res.status(200).json(data)
+        })
+    },
+    deleteBook(req, res) {
+        let username = req.params.username;
+        let bookID = req.params.bookID;
+        db.User.findOneAndUpdate({ username }, { $pull: { savedBooks: { _id: bookID } } }, { new: true }).then(data => {
+            res.status(200).json(data)
+        })
     }
 }

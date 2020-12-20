@@ -11,4 +11,12 @@ router
     .get(userController.findByUsername)
     .post(userController.createUser)
 
+router
+    .route('/:username/books')
+    .post(userController.addBook)
+
+router
+    .route('/:username/books/:bookID')
+    .delete(userController.deleteBook)
+
 module.exports = router
