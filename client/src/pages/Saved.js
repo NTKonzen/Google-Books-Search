@@ -7,8 +7,8 @@ import Container from "../components/Wrappers/Container";
 import Row from "../components/Wrappers/Row";
 import Col from "../components/Wrappers/Col";
 
-import { v4 as uuid } from 'uuid';
 import API from "../utilities/API";
+import './style.css';
 
 function Saved({
     books,
@@ -27,6 +27,23 @@ function Saved({
         })
     }
 
+    function onDescriptionHover(e) {
+        const description = $(e.currentTarget).find('.description');
+        let height = description[0].scrollHeight
+        description.stop(true, false).animate({ scrollTop: height / 8 }, {
+            duration: 500,
+            easing: 'swing'
+        })
+    }
+
+    function offDescriptionHover(e) {
+        const description = $(e.currentTarget).find('.description');
+        description.stop(true, false).animate({ scrollTop: 0 }, {
+            duration: 500,
+            easing: 'swing'
+        })
+    }
+
     return (
         <div>
             <Header />
@@ -37,13 +54,13 @@ function Saved({
                         const { title, img, buyLink, description, authors, _id } = book
                         return (
                             <Col key={_id} styles={{ display: "flex" }} className="col-12 col-md-4 col-sm-6 col-xs-12 mb-4">
-                                <div className="card" style={{ minWidth: "100%" }}>
+                                <div onMouseLeave={offDescriptionHover} onMouseEnter={onDescriptionHover} className="card" style={{ minWidth: "100%" }}>
                                     <img className="card-img-top" src={img} alt={`The cover of ${title}`}></img>
                                     <div className="card-body">
                                         <h5 className="text-center">{title}</h5>
                                         <h6 className="text-center">Author{authors.length > 1 ? 's' : ''}: {authors.join(', ')}</h6>
-                                        <p className="text-center">{description}</p>
-                                        <div className="justify-content-around" style={{ display: "flex" }}>
+                                        <p className="text-center mb-5 bg-light description">{description}</p>
+                                        <div className="justify-content-around buttons d-flex">
                                             <button className="btn btn-danger" onClick={deleteBook} data-object={JSON.stringify(book)}><i className="fas fa-trash" ></i> Delete</button>
                                             <a className="btn btn-success" href={buyLink} target="_blank" rel="noreferrer"><b>$</b> Buy</a>
                                         </div>

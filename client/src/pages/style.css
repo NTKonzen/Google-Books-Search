@@ -1,0 +1,24 @@
+.description {
+    max-height: 200px;
+    overflow-y: scroll;
+}
+
+/* .description:hover::-webkit-scrollbar {
+    width: 10px;
+    position: absolute;
+    right: 0;
+} */
+
+::-webkit-scrollbar {
+    width: 0
+}
+
+::-webkit-scrollbar-track {
+    background-color: rgba(238, 238, 238, 0);
+}
+
+.buttons {
+    position: absolute;
+    width: calc(100% - 40px);
+    bottom: 10px;
+}
