@@ -27,10 +27,6 @@ function Search({
     function addBook(e) {
         const target = e.currentTarget;
         const button = $(target);
-        button.removeClass('btn-success').addClass('btn-primary')
-        button.find('span').text('Added to saved books')
-        const icon = $(target).find('.fas');
-        icon.removeClass('fa-plus').addClass('fa-check')
         const el = button.parent();
         let bookObj = el.data('object')
         API.addBook(Cookies.get('username'), bookObj).then(({ data: { savedBooks } }) => {
@@ -46,7 +42,10 @@ function Search({
         API.getBooks(input).then(({ data }) => {
             let incomingBooks = [];
             data.items.forEach(bookItem => {
-                incomingBooks.push(bookItem.volumeInfo)
+                console.log(bookItem)
+                let obj = bookItem.volumeInfo;
+                obj.searchID = bookItem.id
+                incomingBooks.push(obj)
             })
             setBookList(incomingBooks);
         }).catch(err => {
@@ -82,16 +81,21 @@ function Search({
                                 description,
                                 canonicalVolumeLink,
                                 previewLink,
-                                title
+                                title,
+                                searchID
                             }) => {
                                 let object = {
                                     title: title,
                                     authors: authors,
                                     img: thumbnail,
                                     description: description,
-                                    buyLink: canonicalVolumeLink
+                                    buyLink: canonicalVolumeLink,
+                                    searchID: searchID
                                 }
                                 object = JSON.stringify(object)
+
+                                let exists;
+                                books.forEach(bookObj => { if (bookObj.searchID === searchID) exists = true })
 
                                 return <li className="bg-secondary list-group-item mt-2 rounded text-center" key={previewLink} data-object={object}>
                                     <img className="coverImg" src={thumbnail} alt={`The cover of ${title}`}></img>
@@ -105,7 +109,11 @@ function Search({
                                         </h5> : <span></span>}
 
                                     <p className="text-light description">{description}</p>
-                                    <button onClick={addBook} className="btn btn-success"><i className="fas fa-plus"></i><span> Add to Saved Books</span></button>
+                                    {exists ?
+                                        <button className="btn btn-primary"><i className="fas fa-check"></i><span> Added to Saved Books</span></button>
+                                        :
+                                        <button onClick={addBook} className="btn btn-success"><i className="fas fa-plus"></i><span> Add to Saved Books</span></button>
+                                    }
                                     <br></br>
                                     <a
                                         className='text-light buyLink'

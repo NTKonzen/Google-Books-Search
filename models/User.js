@@ -18,6 +18,9 @@ const bookSchema = new Schema({
     },
     img: {
         type: "String"
+    },
+    searchID: {
+        type: "String"
     }
 })
 

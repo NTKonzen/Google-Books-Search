@@ -57,7 +57,8 @@ function Saved({
             <Container>
                 <Row className="justify-content-around">
                     {books.map((book) => {
-                        const { title, img, buyLink, description, authors, _id } = book
+                        const { title, img, buyLink, description, authors, _id, searchID } = book
+                        console.log(searchID)
                         return (
                             <Col key={_id} styles={{ display: "flex" }} className="col-12 col-md-4 col-sm-6 col-xs-12 mb-4">
                                 <div className="card" style={{ minWidth: "100%" }}>
