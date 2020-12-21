@@ -30,18 +30,24 @@ function Saved({
     function onDescriptionHover(e) {
         const description = $(e.currentTarget).find('.description');
         let height = description[0].scrollHeight
-        description.stop(true, false).animate({ scrollTop: height / 8 }, {
-            duration: 500,
-            easing: 'swing'
-        })
+        let distanceScrolled = description.scrollTop()
+        if (distanceScrolled >= 0 && distanceScrolled <= (height / 8) + 10)
+            description.stop(true, false).animate({ scrollTop: height / 8 }, {
+                duration: 500,
+                easing: 'swing'
+            })
     }
 
     function offDescriptionHover(e) {
         const description = $(e.currentTarget).find('.description');
-        description.stop(true, false).animate({ scrollTop: 0 }, {
-            duration: 500,
-            easing: 'swing'
-        })
+        let height = description[0].scrollHeight
+        let distanceScrolled = description.scrollTop()
+        if (distanceScrolled <= (height / 8) + 10) {
+            description.stop(true, false).animate({ scrollTop: 0 }, {
+                duration: 500,
+                easing: 'swing'
+            })
+        }
     }
 
     return (
