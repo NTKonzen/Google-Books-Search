@@ -54,9 +54,9 @@ function Saved({
                         const { title, img, buyLink, description, authors, _id } = book
                         return (
                             <Col key={_id} styles={{ display: "flex" }} className="col-12 col-md-4 col-sm-6 col-xs-12 mb-4">
-                                <div onMouseLeave={offDescriptionHover} onMouseEnter={onDescriptionHover} className="card" style={{ minWidth: "100%" }}>
+                                <div className="card" style={{ minWidth: "100%" }}>
                                     <img className="card-img-top" src={img} alt={`The cover of ${title}`}></img>
-                                    <div className="card-body">
+                                    <div onMouseLeave={offDescriptionHover} onMouseEnter={onDescriptionHover} className="card-body">
                                         <h5 className="text-center">{title}</h5>
                                         <h6 className="text-center">Author{authors.length > 1 ? 's' : ''}: {authors.join(', ')}</h6>
                                         <p className="text-center mb-5 bg-light description">{description}</p>
