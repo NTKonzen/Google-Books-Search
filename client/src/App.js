@@ -13,9 +13,11 @@ function App() {
   const [books, setBooks] = useState([])
 
   useEffect(() => {
-    API.getUser(Cookies.get('username')).then(({ data: { savedBooks } }) => {
-      setBooks(savedBooks)
-    })
+    Cookies.get('username') &&
+      API.getUser(Cookies.get('username'))
+        .then(({ data: { savedBooks } }) => {
+          setBooks(savedBooks)
+        })
   }, [])
 
   return (

@@ -41,15 +41,16 @@ function SignUp() {
         <Container>
             <Row>
                 <Col>
-                    <form className="bg-secondary p-3 text-center" id='signUpForm' onSubmit={handleSubmit}>
-                        <p className="text-light text-center" style={{ "fontSize": "1.5em" }} > Enter a username to sign up!</p>
+                    <form className="p-3 text-center" id='signUpForm' onSubmit={handleSubmit}>
+                        <i className="fas fa-user-check"></i>
+                        <p className="text-center" style={{ "fontSize": "1.5em" }} > Enter a username to sign up!</p>
                         <label aria-readonly={true} htmlFor={'usernameInput'}></label>
                         <input
                             id={'usernameInput'} style={{ "width": "100%" }}
                             placeholder={'Enter a username'} className='text-center'
                             value={input} onChange={handleInput}
                         ></input>
-                        <button className='btn btn-light mt-2'>Submit</button>
+                        <button className='btn submit mt-2'>Submit</button>
                     </form>
                 </Col>
             </Row>

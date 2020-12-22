@@ -5,3 +5,16 @@
 .nav-link:hover {
     text-decoration: underline;
 }
+
+header {
+    background-color: #1E441E !important;
+    color: #D5DDBC;
+}
+
+.nav-link {
+    color: #D5DDBC;
+}
+
+.nav-link:hover {
+    color: #D5DDBC;
+}

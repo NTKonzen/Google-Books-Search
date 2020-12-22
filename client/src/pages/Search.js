@@ -41,7 +41,6 @@ function Search({
         API.getBooks(input).then(({ data }) => {
             let incomingBooks = [];
             data.items.forEach(bookItem => {
-                console.log(bookItem)
                 let obj = bookItem.volumeInfo;
                 obj.searchID = bookItem.id
                 incomingBooks.push(obj)
@@ -59,15 +58,15 @@ function Search({
             <Container>
                 <Row>
                     <Col>
-                        <form className="bg-secondary p-3 text-center mb-4" id='signUpForm' onSubmit={handleSubmit}>
-                            <p className="text-light text-center" style={{ "fontSize": "1.5em" }} > Enter the title of a book to search!</p>
+                        <form className="p-3 text-center mb-4" id='signUpForm' onSubmit={handleSubmit}>
+                            <p className="text-center" style={{ "fontSize": "1.5em" }} > Enter the title of a book to search!</p>
                             <label aria-readonly={true} htmlFor={'bookSearch'}></label>
                             <input
                                 id={'bookSearch'} style={{ "width": "100%" }}
                                 placeholder={'Enter Book Title'} className='text-center'
                                 value={input} onChange={handleInput}
                             ></input>
-                            <button className='btn btn-light mt-2'>Submit</button>
+                            <button className='btn submit mt-2'>Submit</button>
                         </form>
                     </Col>
                 </Row>
@@ -96,7 +95,7 @@ function Search({
                                 let exists;
                                 books.forEach(bookObj => { if (bookObj.searchID === searchID) exists = true })
 
-                                return <li className="bg-secondary list-group-item mt-2 rounded text-center" key={previewLink} data-object={object}>
+                                return <li className="list-group-item mt-2 rounded text-center" key={previewLink} data-object={object}>
                                     <img className="coverImg" src={thumbnail} alt={`The cover of ${title}`}></img>
                                     <h4 className="title text-light mt-2 font-weight-bold">
                                         {title}
