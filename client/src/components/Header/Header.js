@@ -4,7 +4,7 @@ import "./style.css";
 function Header() {
     return (
         <div style={{ display: "flex" }} className="jumbotron rounded-0 py-4 justify-content-between">
-            <h1>Google Books Manager</h1>
+            <h1><i className="fas fa-book-open"></i> Google Books Manager</h1>
             <nav>
                 <ul className="nav justify-content-end">
                     <li className="nav-item">

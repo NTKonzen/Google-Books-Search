@@ -27,14 +27,13 @@ function Search({
     function addBook(e) {
         const target = e.currentTarget;
         const button = $(target);
+        const icon = button.find('.fas')
+        icon.removeClass('fa-check').addClass('fa-pulse fa-spinner')
         const el = button.parent();
-        let bookObj = el.data('object')
+        let bookObj = el.data('object');
         API.addBook(Cookies.get('username'), bookObj).then(({ data: { savedBooks } }) => {
             setBooks(savedBooks)
         })
-        // setBooks(prevState => {
-        //     return [...prevState, bookObj]
-        // })
     }
 
     function handleSubmit(e) {
