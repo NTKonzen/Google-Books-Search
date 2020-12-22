@@ -11,8 +11,8 @@
 
 This is a web application that allows users to log in and search for different books using the Google Books API. I built this application to test my knowledge of React.js, Node.js, MVC, and Mongoose. Through building the application I learned how to make all the pieces of each technology work together in harmony.  
 
-[![a screenshot of the working application](./images/book-search-screenshot.png)](https://shielded-river-84608.herokuapp.com/search)
-[Click here to access the application!](https://shielded-river-84608.herokuapp.com/search)
+[![a screenshot of the working application](./images/my-books-screenshot.png)](https://gbookmanager.herokuapp.com/);
+[Click here to access the application!](https://gbookmanager.herokuapp.com/);
 
 ### Contributors
 
