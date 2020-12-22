@@ -14,6 +14,7 @@ function Saved({
     books,
     setBooks
 }) {
+    document.title = 'My Books';
     if (!Cookies.get('username')) {
         window.location = "/signup"
     }
@@ -53,11 +54,11 @@ function Saved({
     return (
         <div>
             <Header />
-            <Title title="Saved" />
+            <Title title="My Books" />
             <Container>
                 <Row className="justify-content-around">
                     {books.map((book) => {
-                        const { title, img, buyLink, description, authors, _id, searchID } = book
+                        const { title, img, buyLink, description, authors, _id } = book
                         return (
                             <Col key={_id} styles={{ display: "flex" }} className="col-12 col-md-4 col-sm-6 col-xs-12 mb-4">
                                 <div className="card" style={{ minWidth: "100%" }}>

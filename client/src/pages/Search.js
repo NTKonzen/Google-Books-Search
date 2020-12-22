@@ -108,9 +108,9 @@ function Search({
 
                                     <p className="text-light description">{description}</p>
                                     {exists ?
-                                        <button className="btn btn-primary"><i className="fas fa-check"></i><span> Added to Saved Books</span></button>
+                                        <button className="btn btn-primary"><i className="fas fa-check"></i><span> Added to My Books</span></button>
                                         :
-                                        <button onClick={addBook} className="btn btn-success"><i className="fas fa-plus"></i><span> Add to Saved Books</span></button>
+                                        <button onClick={addBook} className="btn btn-success"><i className="fas fa-plus"></i><span> Add to My Books</span></button>
                                     }
                                     <br></br>
                                     <a

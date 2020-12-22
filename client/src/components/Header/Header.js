@@ -11,7 +11,7 @@ function Header() {
                         <Link className="nav-link" to='/search'>Search</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to='/saved'>Saved</Link>
+                        <Link className="nav-link" to='/saved'>My Books</Link>
                     </li>
                 </ul>
             </nav>
